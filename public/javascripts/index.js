@@ -6,7 +6,13 @@ $(document).ready(function () {
                   initialValues = [],
                   tempData = [],
                   repCount = 0,
-                  spo2Data = [];
+                  spo2Data = [],
+                  maxHeartRate = -100000,
+                  minHeartRate = 100000,
+                  maxTemp = -100000,
+                  minTemp = 100000,
+                  maxSPO2 = -100000,
+                  minSPO2 = 100000;
 
                   var data = {
                   labels: timeData,
@@ -149,7 +155,7 @@ $(document).ready(function () {
                     console.log('receive message' + message.data);
                     try {
                         var obj = JSON.parse(message.data);
-                        var step = 0;
+                        /*var step = 0;
                         
                         if(obj.voltage>450){
                             step = 1;
@@ -161,7 +167,7 @@ $(document).ready(function () {
                                 flexCount++;
                             }
                         }
-                        var avgSetsDone = flexCount/12;
+                        var avgSetsDone = flexCount/12;*/
                         
                         timeData.push(obj.time);
 
@@ -187,6 +193,35 @@ $(document).ready(function () {
                         myLineChart.update();
                         myLineChart2.update();
                         myLineChart3.update();
+
+                        if (maxHeartRate<obj.red){
+                            maxHeartRate = obj.red
+                        }
+                        if (minHeartRate>obj.red){
+                            minHeartRate = obj.red
+                        }
+
+                        if (maxSPO2<obj.IR){
+                            maxSPO2 = obj.IR
+                        }
+                        if (minSPO2>obj.IR){
+                            minSPO2 = obj.IR
+                        }
+
+                        if (maxTemp<obj.green){
+                            maxTemp = obj.green
+                        }
+                        if (minTemp>obj.green){
+                            minTemp = obj.green
+                        }
+
+                        $("#label1").html(maxHeartRate);
+				        $("#label2").html(minHeartRate);
+                        $("#label3").html(maxSPO2);
+                        $("#label1").html(minSPO2);
+				        $("#label2").html(maxTemp);
+                        $("#label3").html(minTemp);
+                
                     } catch (err) {
                         console.error(err);
                     }
