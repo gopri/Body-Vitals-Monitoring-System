@@ -18,6 +18,9 @@ a {
 	font-size: 16px;
 }
 
+table, th, td {
+  border: 1px solid black;
+}
 td#table1 {
 	box-shadow: -3px -3px 18px 1px rgba(43,41,43,1);
 }

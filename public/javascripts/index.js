@@ -69,7 +69,7 @@ $(document).ready(function () {
                   title: {
                   display: true,
                   text: 'Temperature Real-time Data',
-                  fontSize: 32
+                  fontSize: 36
                   },
                   scales: {
                   yAxes: [{
@@ -88,7 +88,7 @@ $(document).ready(function () {
                   title: {
                   display: true,
                   text: 'SPO2 Real-time Data',
-                  fontSize: 32
+                  fontSize: 36
                   },
                   scales: {
                   yAxes: [{
@@ -107,7 +107,7 @@ $(document).ready(function () {
                   title: {
                   display: true,
                   text: 'Heart Rate Real-time Data',
-                  fontSize: 32
+                  fontSize: 36
                   },
                   scales: {
                   yAxes: [{
@@ -221,6 +221,12 @@ $(document).ready(function () {
                         $("#label4").html(minSPO2);
 				        $("#label5").html(maxTemp);
                         $("#label6").html(minTemp);
+
+                        if (maxHeartRate>100){
+                            var x = document.getElementById("label1");
+                            x.style.backgroundColor = "red";
+                        }
+                         
                 
                     } catch (err) {
                         console.error(err);
