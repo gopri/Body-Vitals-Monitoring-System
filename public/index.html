@@ -30,6 +30,62 @@
             </table>
     </div>
     
+    <div>
+        <button id="emailIdEllipsis" onclick="$(this).openModal()" class="w3-btn w3-lightgray w3-xlarge" style="color:#d9d9d9;">
+        <i class="fa fa-ellipsis-v"></i>
+        </button>
+        <div id="emailId-modal" class="w3-modal">
+        <div class="w3-modal-content">
+        <header class="w3-container w3-light-grey"> 
+            <table>
+                <td><h6>Please enter adminstrator emailid</h6></td>
+                <td style="padding-left: 225px;">
+                <i id="modalClose" onclick="document.getElementById('emailId-modal').style.display='none'" class="fa fa-times w3-button" style="color:#BEBEBE; font-size:12px;"/>
+                </td>
+            </table>
+        </header>
+        <div class="w3-container w3-light-grey">
+          <input class="modalTextbox" type="email" placeholder="example@email.com" name="emailId" id="emailId" oninvalid="this.setCustomValidity('Please provide a valid email address!')" oninput="setCustomValidity('')" required/>
+          <button id="modalBtn" class="modalButton" type="submit" onclick="save()">Save</button>
+        </div>
+        <footer class="w3-container w3-light-grey">
+        <p></br></p>
+        </footer>
+        <div class="container" style="background-color:#f1f1f1">
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        <script>
+    
+        function save(){
+            if(document.getElementById('emailId').validity.valid){
+                document.getElementById('emailId-modal').style.display='none';
+            }
+        }
+        
+        $(function(){				
+            $('#modalBtn').click(function(e){
+                console.log('Save button clicked');
+                var email = document.getElementById('emailId').value;
+                var data = {};
+                data.emailId = email;
+                if(document.getElementById('emailId').validity.valid){
+                    $.ajax({
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        url: '/',						
+                        success: function(data) {
+                            console.log('Success on save button clicked');
+                        }
+                    });
+                }
+            });				
+        });
+        </script>
 
 </body>
 

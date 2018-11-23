@@ -222,9 +222,12 @@ $(document).ready(function () {
 				        $("#label5").html(maxTemp);
                         $("#label6").html(minTemp);
 
+                        var x = document.getElementById("label1");
                         if (maxHeartRate>100){
-                            var x = document.getElementById("label1");
                             x.style.backgroundColor = "red";
+                        }
+                        else{
+                            x.style.backgroundColor = "white";
                         }
                          
                 
