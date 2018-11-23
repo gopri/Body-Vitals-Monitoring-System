@@ -218,9 +218,9 @@ $(document).ready(function () {
                         $("#label1").html(maxHeartRate);
 				        $("#label2").html(minHeartRate);
                         $("#label3").html(maxSPO2);
-                        $("#label1").html(minSPO2);
-				        $("#label2").html(maxTemp);
-                        $("#label3").html(minTemp);
+                        $("#label4").html(minSPO2);
+				        $("#label5").html(maxTemp);
+                        $("#label6").html(minTemp);
                 
                     } catch (err) {
                         console.error(err);
