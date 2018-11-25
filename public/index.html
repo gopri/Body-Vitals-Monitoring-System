@@ -6,9 +6,19 @@
     <script src="javascripts/Chart.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/index.js" type="text/javascript" charset="utf-8"></script>
     <link href="stylesheets/style.css" rel="stylesheet" />
+
+    <link id="themecss" rel="stylesheet" type="text/css" href="stylesheets/all.min.css" />
+	<script type="text/javascript" src="javascripts/shieldui-all.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 
 <body>
+
+    <input type="text" id="myText" value="Enter age">
+    <button onclick="setAge()">Set Age</button>
+    <p>Age: </p>
+    <p id="demo">25</p>
+        
     <canvas id="myChart" width="400" height="150"></canvas>
     <canvas id="myChart2" width="400" height="150"></canvas>
     <canvas id="myChart3" width="400" height="150"></canvas>
@@ -30,6 +40,12 @@
             </table>
     </div>
     
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myText").value;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
 
 </body>
 

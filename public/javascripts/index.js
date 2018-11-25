@@ -230,6 +230,11 @@ $(document).ready(function () {
                             x.style.backgroundColor = "white";
                         }
                          
+                        var x1 = document.getElementById("demo");
+
+                        if (x1==25){
+                            x.style.backgroundColor = 'yellow'
+                        }
                 
                     } catch (err) {
                         console.error(err);
