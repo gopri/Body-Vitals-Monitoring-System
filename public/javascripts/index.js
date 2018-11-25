@@ -172,15 +172,15 @@ $(document).ready(function () {
                         
                         timeData.push(obj.time);
 
-                        heartRateData.push(obj.beatsPerMinute);
+                        heartRateData.push(obj.red);
                         /*if(obj.voltage>450){
                             intensityData.push(obj.voltage);
                         }else{
                             intensityData.push(450);
                         }*/
                         
-                        spo2Data.push(obj.beatAvg);
-                        tempData.push(obj.temperature);
+                        spo2Data.push(obj.IR);
+                        tempData.push(obj.green);
                         // only keep no more than 50 points in the line chart
                         const maxLen = 50;
                         var len = timeData.length;
@@ -195,25 +195,25 @@ $(document).ready(function () {
                         myLineChart2.update();
                         myLineChart3.update();
 
-                        if (maxHeartRate<obj.beatsPerMinute){
-                            maxHeartRate = obj.beatsPerMinute
+                        if (maxHeartRate<obj.red){
+                            maxHeartRate = obj.red
                         }
-                        if (minHeartRate>obj.beatsPerMinute){
-                            minHeartRate = obj.beatsPerMinute
-                        }
-
-                        if (maxSPO2<obj.beatAvg){
-                            maxSPO2 = obj.beatAvg
-                        }
-                        if (minSPO2>obj.beatAvg){
-                            minSPO2 = obj.beatAvg
+                        if (minHeartRate>obj.red){
+                            minHeartRate = obj.red
                         }
 
-                        if (maxTemp<obj.temperature){
-                            maxTemp = obj.temperature
+                        if (maxSPO2<obj.IR){
+                            maxSPO2 = obj.IR
                         }
-                        if (minTemp>obj.temperature){
-                            minTemp = obj.temperature
+                        if (minSPO2>obj.IR){
+                            minSPO2 = obj.IR
+                        }
+
+                        if (maxTemp<obj.green){
+                            maxTemp = obj.green
+                        }
+                        if (minTemp>obj.green){
+                            minTemp = obj.green
                         }
 
                         ageSet = document.getElementById("demo");
@@ -232,49 +232,39 @@ $(document).ready(function () {
                         var l5 = document.getElementById("label5");
                         var l6 = document.getElementById("label6");
 
-                        var msg = "";
                         if (maxHeartRate>(220-ageSet)){
                             l1.style.backgroundColor = "red";
-                            //msg += "\nHeart rate above max possible heart rate";
-                            
-                            //document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
+                            //$("#curHealth").html("Heart rate above max possible heart rate");
+                            document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
                             l1.style.backgroundColor = "white";
-                            //msg += "\nHeart rate is normal";
-                            //document.getElementById("curHealth").innerHTML = "Heart rate is normal"
+                            document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
 
                         if (minHeartRate>100 || minHeartRate<60){
                             l2.style.backgroundColor = "red";
-                            msg += "\nResting Heart rate is not in normal range of 60 to 100 beats per minute"
-                            //document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
+                            document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
                         }
                         else{
                             l2.style.backgroundColor = "white";
-                            //msg+= "\nResting Heart rate is normal";
-                            //document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
+                            document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
                         }
 
                         if (maxTemp>99.5){
                             l5.style.backgroundColor = "red";
-                            //msg += "\nTemp is in more than 99.5F";
-                            //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
+                            document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
                         else if(minTemp<97.7){
                             l6.style.backgroundColor = "red";
-                            //msg += "\nTemp is in below 97.7F";
-                            //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
+                            document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
                         else{
                             l5.style.backgroundColor = "white";
                             l6.style.backgroundColor = "white";
-                            //msg += "\nTemp is normal";
-                            //document.getElementById("curHealth").innerHTML = "Temp is normal"
+                            document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }                        
                 
-                        $("#curHealth").html(msg);
-
                     } catch (err) {
                         console.error(err);
                     }
