@@ -22,6 +22,7 @@ table, th, td {
   border: 1px solid black;
   text-align: center;
   padding: 5px;
+  width: 100%;
 }
 td#table1 {
 	box-shadow: -3px -3px 18px 1px rgba(43,41,43,1);
