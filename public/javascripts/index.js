@@ -12,7 +12,8 @@ $(document).ready(function () {
                   maxTemp = -100000,
                   minTemp = 100000,
                   maxSPO2 = -100000,
-                  minSPO2 = 100000;
+                  minSPO2 = 100000,
+                  ageSet = 25;
 
                   var data = {
                   labels: timeData,
@@ -215,6 +216,8 @@ $(document).ready(function () {
                             minTemp = obj.green
                         }
 
+                        ageSet = document.getElementById("demo");
+
                         $("#label1").html(maxHeartRate);
 				        $("#label2").html(minHeartRate);
                         $("#label3").html(maxSPO2);
@@ -222,19 +225,44 @@ $(document).ready(function () {
 				        $("#label5").html(maxTemp);
                         $("#label6").html(minTemp);
 
-                        var x = document.getElementById("label1");
-                        if (maxHeartRate>100){
-                            x.style.backgroundColor = "red";
+                        var l1 = document.getElementById("label1");
+                        var l2 = document.getElementById("label2");
+                        var l3 = document.getElementById("label3");
+                        var l4 = document.getElementById("label4");
+                        var l5 = document.getElementById("label5");
+                        var l6 = document.getElementById("label6");
+
+                        if (maxHeartRate>(220-ageSet)){
+                            l1.style.backgroundColor = "red";
+                            document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
-                            x.style.backgroundColor = "white";
+                            l1.style.backgroundColor = "white";
+                            document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
-                         
-                        var x1 = document.getElementById("demo");
 
-                        if (x1==25){
-                            x.style.backgroundColor = 'yellow'
+                        if (minHeartRate>100 || minHeartRate<60){
+                            l2.style.backgroundColor = "red";
+                            document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
                         }
+                        else{
+                            l2.style.backgroundColor = "white";
+                            document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
+                        }
+
+                        if (maxTemp>99.5){
+                            l5.style.backgroundColor = "red";
+                            document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
+                        }
+                        else if(minTemp<97.7){
+                            l6.style.backgroundColor = "red";
+                            document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
+                        }
+                        else{
+                            l5.style.backgroundColor = "white";
+                            l6.style.backgroundColor = "white";
+                            document.getElementById("curHealth").innerHTML = "Temp is normal"
+                        }                        
                 
                     } catch (err) {
                         console.error(err);
