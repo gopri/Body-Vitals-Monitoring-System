@@ -69,7 +69,7 @@ $(document).ready(function () {
                   title: {
                   display: true,
                   text: 'Temperature Real-time Data',
-                  fontSize: 30
+                  fontSize: 20
                   },
                   scales: {
                   yAxes: [{
@@ -88,7 +88,7 @@ $(document).ready(function () {
                   title: {
                   display: true,
                   text: 'SPO2 Real-time Data',
-                  fontSize: 30
+                  fontSize: 20
                   },
                   scales: {
                   yAxes: [{
@@ -107,7 +107,7 @@ $(document).ready(function () {
                   title: {
                   display: true,
                   text: 'Heart Rate Real-time Data',
-                  fontSize: 30
+                  fontSize: 20
                   },
                   scales: {
                   yAxes: [{
