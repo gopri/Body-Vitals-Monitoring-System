@@ -16,8 +16,10 @@
 
     <input type="text" id="myText" value="Enter age">
     <button onclick="setAge()">Set Age</button>
-    <p>Age: </p>
-    <p id="demo"></p>
+    <p>
+        <h6>Age: </h6> <h6 id="demo"></h6>
+    </p>
+
         
     <canvas id="myChart" width="400" height="150"></canvas>
     <canvas id="myChart2" width="400" height="150"></canvas>
@@ -41,7 +43,7 @@
     </div>
     
     <script>
-        function myFunction() {
+        function setAge() {
             var age = document.getElementById("myText").value;
             document.getElementById("demo").innerHTML = age;
         }
