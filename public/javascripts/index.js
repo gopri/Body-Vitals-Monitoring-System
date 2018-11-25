@@ -234,6 +234,7 @@ $(document).ready(function () {
 
                         if (maxHeartRate>(220-ageSet)){
                             l1.style.backgroundColor = "red";
+                            $("#curHealth").html("Heart rate above max possible heart rate");
                             document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
