@@ -198,8 +198,8 @@ $(document).ready(function () {
                         if (maxHeartRate<obj.beatsPerMinute){
                             maxHeartRate = obj.beatsPerMinute
                         }
-                        if (minHeartRate>obj.red){
-                            minHeartRate = obj.red
+                        if (minHeartRate>obj.beatsPerMinute){
+                            minHeartRate = obj.beatsPerMinute
                         }
 
                         if (maxSPO2<obj.beatAvg){
@@ -235,13 +235,13 @@ $(document).ready(function () {
                         var msg = "";
                         if (maxHeartRate>(220-ageSet)){
                             l1.style.backgroundColor = "red";
-                            msg += "\nHeart rate above max possible heart rate";
+                            //msg += "\nHeart rate above max possible heart rate";
                             
                             //document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
                             l1.style.backgroundColor = "white";
-                            msg += "\nHeart rate is normal";
+                            //msg += "\nHeart rate is normal";
                             //document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
 
@@ -252,24 +252,24 @@ $(document).ready(function () {
                         }
                         else{
                             l2.style.backgroundColor = "white";
-                            msg+= "\nResting Heart rate is normal";
+                            //msg+= "\nResting Heart rate is normal";
                             //document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
                         }
 
                         if (maxTemp>99.5){
                             l5.style.backgroundColor = "red";
-                            msg += "\nTemp is in more than 99.5F";
+                            //msg += "\nTemp is in more than 99.5F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
                         else if(minTemp<97.7){
                             l6.style.backgroundColor = "red";
-                            msg += "\nTemp is in below 97.7F";
+                            //msg += "\nTemp is in below 97.7F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
                         else{
                             l5.style.backgroundColor = "white";
                             l6.style.backgroundColor = "white";
-                            msg += "\nTemp is normal";
+                            //msg += "\nTemp is normal";
                             //document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }                        
                 
