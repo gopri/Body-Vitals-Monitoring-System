@@ -19,6 +19,7 @@
     <br>
     <input type="text" id="myText">
     <button onclick="setAge()">Set Age</button>
+    <button onclick="email()">Email</button>
 
     <div style="overflow: hidden;" align="center">
             <p style="float: left;">Age: </p>
@@ -73,7 +74,6 @@
         function setAge() {
             var age = document.getElementById("myText").value;
             document.getElementById("demo").innerHTML = age;
-            email();
         }
 
         function email() {
