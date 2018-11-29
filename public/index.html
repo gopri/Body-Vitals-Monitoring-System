@@ -73,6 +73,32 @@
         function setAge() {
             var age = document.getElementById("myText").value;
             document.getElementById("demo").innerHTML = age;
+            email();
+        }
+
+        function email() {
+            $.ajax({
+            type: “POST”,
+            url: “https://mandrillapp.com/api/1.0/messages/send.json”,
+            data: {
+                ‘key’: ‘rGZM8DTuBH4ZuqeW9fEVkg’,
+                ‘message’: {
+                ‘from_email’: ‘goyalpriyanka.pg@gmail.com’,
+                ‘to’: [
+                    {
+                        ‘email’: ‘goyalpriyanka.in@gmail.com’,
+                        ‘name’: ‘ABC’,
+                        ‘type’: ‘to’
+                    }
+                    ],
+                ‘autotext’: ‘true’,
+                ‘subject’: ‘YOUR SUBJECT HERE!’,
+                ‘html’: ‘YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!’
+                }
+            }
+            }).done(function(response) {
+            console.log(response); // if you're into that sorta thing
+            });
         }
     </script>
 
