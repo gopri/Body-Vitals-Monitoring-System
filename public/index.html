@@ -104,13 +104,12 @@
         }
 
         function emaill(){
+            console.log("hey");
             Email.send("goyalpriyanka.pg@gmail.com",
             "goyalpriyanka.pg@gmail.com",
             "This is a subject",
             "this is the body",
-            "smtp.elasticemail.com",
-            "goyalpriyanka.pg@gmail.com",
-            "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e");
+            {token: "bc5459be-f55e-4009-b6b7-d992d6299cd1"});
 }
     </script>
 
