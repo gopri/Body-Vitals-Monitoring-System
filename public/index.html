@@ -5,6 +5,7 @@
     <script src="javascripts/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/Chart.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://smtpjs.com/v2/smtp.js"></script>
     <link href="stylesheets/style.css" rel="stylesheet" />
 
     <link id="themecss" rel="stylesheet" type="text/css" href="stylesheets/all.min.css" />
@@ -100,6 +101,14 @@
             }).done(function(response) {
             console.log(response); // if you're into that sorta thing
             });
+        }
+
+        function email1(){
+            Email.send("goyalpriyanka.pg@gmail.com",
+            "goyalpriyanka.pg@gmail.com",
+            "This is a subject",
+            "this is the body",
+            {token: "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e"});
         }
     </script>
 
