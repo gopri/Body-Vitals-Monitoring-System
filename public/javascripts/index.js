@@ -32,7 +32,7 @@ $(document).ready(function () {
                              }
                              ]
                   }
-                  
+                  /*
                   var data2 = {
                   labels: timeData,
                   datasets: [
@@ -49,7 +49,7 @@ $(document).ready(function () {
                              }
                              ]
                   }
-                  
+                  */
                   var data3 = {
                   labels: timeData,
                   datasets: [
@@ -85,7 +85,7 @@ $(document).ready(function () {
                           }]
                   }
                   }
-                  
+                  /*
                   var basicOption2 = {
                   title: {
                   display: true,
@@ -104,7 +104,7 @@ $(document).ready(function () {
                           }]
                   }
                   }
-                  
+                  */
                   var basicOption = {
                   title: {
                   display: true,
@@ -126,7 +126,7 @@ $(document).ready(function () {
                   
                   //Get the context of the canvas element we want to select
                   var ctx = document.getElementById("myChart").getContext("2d");
-                  var ctx2 = document.getElementById("myChart2").getContext("2d");
+                  //var ctx2 = document.getElementById("myChart2").getContext("2d");
                   var ctx3 = document.getElementById("myChart3").getContext("2d");
                   var optionsNoAnimation = { animation: false }
                   var myLineChart = new Chart(ctx, {
@@ -135,12 +135,12 @@ $(document).ready(function () {
                                               options: basicOption
                                               });
                   
-                  var myLineChart2 = new Chart(ctx2, {
+                  /*var myLineChart2 = new Chart(ctx2, {
                                               type: 'line',
                                               data: data2,
                                               options: basicOption2
                                               });
-                  
+                  */
                   var myLineChart3 = new Chart(ctx3, {
                                                type: 'line',
                                                data: data3,
@@ -173,102 +173,103 @@ $(document).ready(function () {
                         
                         timeData.push(obj.time);
 
-                        heartRateData.push(obj.red);
+                        heartRateData.push(obj.IR);
                         /*if(obj.voltage>450){
                             intensityData.push(obj.voltage);
                         }else{
                             intensityData.push(450);
                         }*/
                         
-                        spo2Data.push(obj.IR);
-                        tempData.push(obj.green);
+                        //spo2Data.push(obj.IR);
+                        tempData.push(obj.red);
                         // only keep no more than 50 points in the line chart
                         const maxLen = 50;
                         var len = timeData.length;
                         if (len > maxLen) {
                             timeData.shift();
                             heartRateData.shift();
-                            spo2Data.shift();
+                            //spo2Data.shift();
                             tempData.shift();
                         }
                         
                         myLineChart.update();
-                        myLineChart2.update();
+                        //myLineChart2.update();
                         myLineChart3.update();
 
-                        if (maxHeartRate<obj.red){
-                            maxHeartRate = obj.red
+                        if (maxHeartRate<obj.IR){
+                            maxHeartRate = obj.IR
                         }
-                        if (minHeartRate>obj.red){
-                            minHeartRate = obj.red
+                        if (minHeartRate>obj.IR){
+                            minHeartRate = obj.IR
                         }
 
+                        /*
                         if (maxSPO2<obj.IR){
                             maxSPO2 = obj.IR
                         }
                         if (minSPO2>obj.IR){
                             minSPO2 = obj.IR
                         }
-
-                        if (maxTemp<obj.green){
-                            maxTemp = obj.green
+                        */
+                        if (maxTemp<obj.red){
+                            maxTemp = obj.red
                         }
-                        if (minTemp>obj.green){
-                            minTemp = obj.green
+                        if (minTemp>obj.red){
+                            minTemp = obj.red
                         }
 
                         ageSet = document.getElementById("demo");
 
                         $("#label1").html(maxHeartRate);
 				        $("#label2").html(minHeartRate);
-                        $("#label3").html(maxSPO2);
-                        $("#label4").html(minSPO2);
+                        //$("#label3").html(maxSPO2);
+                        //$("#label4").html(minSPO2);
 				        $("#label5").html(maxTemp);
                         $("#label6").html(minTemp);
 
                         var l1 = document.getElementById("label1");
                         var l2 = document.getElementById("label2");
-                        var l3 = document.getElementById("label3");
-                        var l4 = document.getElementById("label4");
+                        //var l3 = document.getElementById("label3");
+                        //var l4 = document.getElementById("label4");
                         var l5 = document.getElementById("label5");
                         var l6 = document.getElementById("label6");
 
                         if (maxHeartRate>(220-ageSet)){
                             l1.style.backgroundColor = "red";
-                            curHealthMsg = curHealthMsg + "\nHeart rate above max possible heart rate";
+                            curHealthMsg = curHealthMsg + "\r\nHeart rate above max possible heart rate";
                             //document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
                             l1.style.backgroundColor = "white";
-                            curHealthMsg = curHealthMsg + "\nHeart rate is normal";
+                            curHealthMsg = curHealthMsg + "\r\nHeart rate is normal";
                             //document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
 
                         if (minHeartRate>100 || minHeartRate<60){
                             l2.style.backgroundColor = "red";
-                            curHealthMsg = curHealthMsg + "\nResting Heart rate is not in normal range of 60 to 100 beats per minute";
+                            curHealthMsg = curHealthMsg + "\r\nResting Heart rate is not in normal range of 60 to 100 beats per minute";
                             //document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
                         }
                         else{
                             l2.style.backgroundColor = "white";
-                            curHealthMsg = curHealthMsg + "\nResting Heart rate is normal";
+                            curHealthMsg = curHealthMsg + "\r\nResting Heart rate is normal";
                             //document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
                         }
 
                         if (maxTemp>99.5){
                             l5.style.backgroundColor = "red";
-                            curHealthMsg = curHealthMsg + "\nTemp is in more than 99.5F";
+                            curHealthMsg = curHealthMsg + "\r\nTemp is in more than 99.5F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
                         else if(minTemp<97.7){
                             l6.style.backgroundColor = "red";
-                            curHealthMsg = curHealthMsg + "\nTemp is in below 97.7F";
+                            curHealthMsg = curHealthMsg + "\r\nTemp is in below 97.7F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
                         else{
                             l5.style.backgroundColor = "white";
                             l6.style.backgroundColor = "white";
-                            curHealthMsg = curHealthMsg + "\nTemp is normal";
+                            curHealthMsg = curHealthMsg + "\r\nTemp is normal";
                             //document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }      
                         
