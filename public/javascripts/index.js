@@ -32,14 +32,14 @@ $(document).ready(function () {
                              }
                              ]
                   }
-                  /*
+                  
                   var data2 = {
                   labels: timeData,
                   datasets: [
                              {
                              fill: false,
-                             label: 'SPO2',
-                             yAxisID: 'SPO2',
+                             label: 'BeatsAvg',
+                             yAxisID: 'BeatsAvg',
                              borderColor: "rgba(255, 204, 0, 1)",
                              pointBoarderColor: "rgba(255, 204, 0, 1)",
                              backgroundColor: "rgba(255, 204, 0, 0.4)",
@@ -49,7 +49,7 @@ $(document).ready(function () {
                              }
                              ]
                   }
-                  */
+                  
                   var data3 = {
                   labels: timeData,
                   datasets: [
@@ -85,26 +85,26 @@ $(document).ready(function () {
                           }]
                   }
                   }
-                  /*
+                  
                   var basicOption2 = {
                   title: {
                   display: true,
-                  text: 'SPO2 Real-time Data',
+                  text: 'BeatsAvg Real-time Data',
                   fontSize: 20
                   },
                   scales: {
                   yAxes: [{
-                          id: 'SPO2',
+                          id: 'BeatsAvg',
                           type: 'linear',
                           scaleLabel: {
-                          labelString: 'SPO2',
+                          labelString: 'BeatsAvg',
                           display: true
                           },
                           position: 'left',
                           }]
                   }
                   }
-                  */
+                  
                   var basicOption = {
                   title: {
                   display: true,
@@ -126,7 +126,7 @@ $(document).ready(function () {
                   
                   //Get the context of the canvas element we want to select
                   var ctx = document.getElementById("myChart").getContext("2d");
-                  //var ctx2 = document.getElementById("myChart2").getContext("2d");
+                  var ctx2 = document.getElementById("myChart2").getContext("2d");
                   var ctx3 = document.getElementById("myChart3").getContext("2d");
                   var optionsNoAnimation = { animation: false }
                   var myLineChart = new Chart(ctx, {
@@ -135,12 +135,12 @@ $(document).ready(function () {
                                               options: basicOption
                                               });
                   
-                  /*var myLineChart2 = new Chart(ctx2, {
+                  var myLineChart2 = new Chart(ctx2, {
                                               type: 'line',
                                               data: data2,
                                               options: basicOption2
                                               });
-                  */
+                  
                   var myLineChart3 = new Chart(ctx3, {
                                                type: 'line',
                                                data: data3,
@@ -180,7 +180,7 @@ $(document).ready(function () {
                             intensityData.push(450);
                         }*/
                         
-                        //spo2Data.push(obj.IR);
+                        spo2Data.push(obj.green);
                         tempData.push(obj.red);
                         // only keep no more than 50 points in the line chart
                         const maxLen = 50;
@@ -188,12 +188,12 @@ $(document).ready(function () {
                         if (len > maxLen) {
                             timeData.shift();
                             heartRateData.shift();
-                            //spo2Data.shift();
+                            spo2Data.shift();
                             tempData.shift();
                         }
                         
                         myLineChart.update();
-                        //myLineChart2.update();
+                        myLineChart2.update();
                         myLineChart3.update();
 
                         if (maxHeartRate<obj.IR){
