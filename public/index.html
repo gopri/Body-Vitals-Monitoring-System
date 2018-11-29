@@ -20,7 +20,7 @@
     <br>
     <input type="text" id="myText">
     <button onclick="setAge()">Set Age</button>
-    <button onclick="emaill()">Email</button>
+    <button onclick="email()">Email</button>
 
     <div style="overflow: hidden;" align="center">
             <p style="float: left;">Age: </p>
@@ -78,39 +78,15 @@
         }
 
         function email() {
-            console.log("Email function");
-            $.ajax({
-            type: 'POST',
-            url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-            data: {
-                'key': 'rGZM8DTuBH4ZuqeW9fEVkg',
-                'message': {
-                'from_email': 'goyalpriyanka.pg@gmail.com',
-                'to': [
-                    {
-                        'email': 'goyalpriyanka.in@gmail.com',
-                        'name': 'ABC',
-                        'type': 'to'
-                    }
-                    ],
-                'autotext': 'true',
-                'subject': 'YOUR SUBJECT HERE!',
-                'html': 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!'
-                }
-            }
-            }).done(function(response) {
-            console.log(response); // if you're into that sorta thing
-            });
-        }
-
-        function emaill(){
             console.log("hey");
+            var msg = document.getElementById("curHealth").value;
             Email.send("goyalpriyanka.pg@gmail.com",
             "goyalpriyanka.pg@gmail.com",
-            "This is a subject",
-            "this is the body",
+            "Health Report",
+            msg,
             {token: "bc5459be-f55e-4009-b6b7-d992d6299cd1"});
-}
+        }
+
     </script>
 
 </body>
