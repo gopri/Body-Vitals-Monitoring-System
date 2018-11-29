@@ -20,7 +20,7 @@
     <br>
     <input type="text" id="myText">
     <button onclick="setAge()">Set Age</button>
-    <button onclick="email1()">Email</button>
+    <button onclick="emaill()">Email</button>
 
     <div style="overflow: hidden;" align="center">
             <p style="float: left;">Age: </p>
@@ -103,13 +103,15 @@
             });
         }
 
-        function email1(){
+        function emaill(){
             Email.send("goyalpriyanka.pg@gmail.com",
             "goyalpriyanka.pg@gmail.com",
             "This is a subject",
             "this is the body",
-            {token: "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e"});
-        }
+            "smtp.elasticemail.com",
+            "goyalpriyanka.pg@gmail.com",
+            "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e");
+}
     </script>
 
 </body>
