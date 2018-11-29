@@ -7,7 +7,7 @@ $(document).ready(function () {
        var cPassword='68747b4e-ebdc-48e3-9b2b-2b39340d4c5e';
        Email.send(cfrom,
            cto,
-           csub,
+           'subject',
            'Visa slot availability ',
            curl,
            cuserName,
