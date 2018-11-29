@@ -14,7 +14,8 @@ $(document).ready(function () {
                   maxSPO2 = -100000,
                   minSPO2 = 100000,
                   curHealthMsg = "",
-                  ageSet = 25;
+                  ageSet = 25,
+                  flag = 0;
 
                   var data = {
                   labels: timeData,
@@ -156,6 +157,10 @@ $(document).ready(function () {
                   ws.onmessage = function (message) {
                     console.log('receive message' + message.data);
                     try {
+                        curHealthMsg = '';
+
+                        flag = 0;
+
                         var obj = JSON.parse(message.data);
                         /*var step = 0;
                         
@@ -234,9 +239,9 @@ $(document).ready(function () {
                         var l5 = document.getElementById("label5");
                         var l6 = document.getElementById("label6");
 
-                        email();
                         if (maxHeartRate>(220-ageSet)){
                             l1.style.backgroundColor = "red";
+                            flag = 1;
                             curHealthMsg = curHealthMsg + "\r\nHeart rate above max possible heart rate";
                             //document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
@@ -248,6 +253,7 @@ $(document).ready(function () {
 
                         if (minHeartRate>100 || minHeartRate<60){
                             l2.style.backgroundColor = "red";
+                            flag = 1;
                             curHealthMsg = curHealthMsg + "\r\nResting Heart rate is not in normal range of 60 to 100 beats per minute";
                             //document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
                         }
@@ -259,11 +265,13 @@ $(document).ready(function () {
 
                         if (maxTemp>99.5){
                             l5.style.backgroundColor = "red";
+                            flag = 1;
                             curHealthMsg = curHealthMsg + "\r\nTemp is in more than 99.5F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
                         else if(minTemp<97.7){
                             l6.style.backgroundColor = "red";
+                            flag = 1;
                             curHealthMsg = curHealthMsg + "\r\nTemp is in below 97.7F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
@@ -275,6 +283,9 @@ $(document).ready(function () {
                         }      
                         
                         $("#curHealth").html(curHealthMsg);
+                        if (flag==1){
+                            email();
+                        }
                 
                     } catch (err) {
                         console.error(err);
