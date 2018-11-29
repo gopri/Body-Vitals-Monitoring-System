@@ -13,6 +13,7 @@ $(document).ready(function () {
                   minTemp = 100000,
                   maxSPO2 = -100000,
                   minSPO2 = 100000,
+                  curHealthMsg = "",
                   ageSet = 25;
 
                   var data = {
@@ -234,36 +235,44 @@ $(document).ready(function () {
 
                         if (maxHeartRate>(220-ageSet)){
                             l1.style.backgroundColor = "red";
-                            //$("#curHealth").html("Heart rate above max possible heart rate");
-                            document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
+                            curHealthMsg = curHealthMsg + "\nHeart rate above max possible heart rate";
+                            //document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
                             l1.style.backgroundColor = "white";
-                            document.getElementById("curHealth").innerHTML = "Heart rate is normal"
+                            curHealthMsg = curHealthMsg + "\nHeart rate is normal";
+                            //document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
 
                         if (minHeartRate>100 || minHeartRate<60){
                             l2.style.backgroundColor = "red";
-                            document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
+                            curHealthMsg = curHealthMsg + "\nResting Heart rate is not in normal range of 60 to 100 beats per minute";
+                            //document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
                         }
                         else{
                             l2.style.backgroundColor = "white";
-                            document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
+                            curHealthMsg = curHealthMsg + "\nResting Heart rate is normal";
+                            //document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
                         }
 
                         if (maxTemp>99.5){
                             l5.style.backgroundColor = "red";
-                            document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
+                            curHealthMsg = curHealthMsg + "\nTemp is in more than 99.5F";
+                            //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
                         else if(minTemp<97.7){
                             l6.style.backgroundColor = "red";
-                            document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
+                            curHealthMsg = curHealthMsg + "\nTemp is in below 97.7F";
+                            //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
                         else{
                             l5.style.backgroundColor = "white";
                             l6.style.backgroundColor = "white";
-                            document.getElementById("curHealth").innerHTML = "Temp is normal"
-                        }                        
+                            curHealthMsg = curHealthMsg + "\nTemp is normal";
+                            //document.getElementById("curHealth").innerHTML = "Temp is normal"
+                        }      
+                        
+                        $("#curHealth").html(curHealthMsg);
                 
                     } catch (err) {
                         console.error(err);
