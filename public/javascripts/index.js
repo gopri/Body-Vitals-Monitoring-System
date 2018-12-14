@@ -294,22 +294,25 @@ $(document).ready(function () {
                             flag = 1;
                             colorRed = 1;
                         }
+                        else{
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate according to your age is in normal range (" + obj.IR + ")";
+                        }
                         
 
                         if(obj.IR<=89){
                             curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Normal (" + obj.IR + ")";
                         }
                         else if(obj.IR<=110){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Out of Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Out of Zone (" + obj.IR + ")";
                         }
                         else if(obj.IR<=135){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Fat Burn Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Fat Burn Zone (" + obj.IR + ")";
                         }
                         else if(obj.IR<=152){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Cardio Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Cardio Zone (" + obj.IR + ")";
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Peak Zone (" + obj.IR + ")";
                             colorRed = 1;
                         }
 
@@ -319,12 +322,12 @@ $(document).ready(function () {
                             colorRed=1;
                         }
                         else if(obj.fspo2<=95){
-                            curHealthMsg = curHealthMsg + "<br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
                             flag = 1;
                             colorRed=1;
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/>SPO2 is in normal range (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is in normal range (" + obj.fspo2 + ")";
                         }
 
                         if(obj.red<=88){
@@ -333,12 +336,12 @@ $(document).ready(function () {
                             colorRed=1;
                         }
                         else if(obj.red>=101){
-                            curHealthMsg = curHealthMsg + "<br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/>Temperature range: Normal Range (" + obj.red + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Normal Range (" + obj.red + ")";
                         }
 
                         $("#curHealth").html(curHealthMsg);
