@@ -225,7 +225,7 @@ $(document).ready(function () {
                         if (maxTemp<obj.red || maxTemp > 101){
                             maxTemp = obj.red;
                         }
-                        if (minTemp>obj.red || minTemp < 88){
+                        if (minTemp>obj.red || minTemp < 78){
                             minTemp = obj.red;
                         }
 
@@ -280,7 +280,7 @@ $(document).ready(function () {
                             l5.style.backgroundColor = "red";
                             flag = 1;
                         }
-                        else if(minTemp<88){
+                        else if(minTemp<78){
                             l6.style.backgroundColor = "red";
                             flag = 1;
                         }
@@ -317,12 +317,12 @@ $(document).ready(function () {
                         }
 
                         if(obj.fspo2>100){
-                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is above maximum value of 100 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 range: Reach out to doctor!! (" + obj.fspo2 + ")";
                             flag = 1;
                             colorRed=1;
                         }
                         else if(obj.fspo2<=95){
-                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 range: Potential Hypoxia (" + obj.fspo2 + ")";
                             flag = 1;
                             colorRed=1;
                         }
@@ -330,13 +330,18 @@ $(document).ready(function () {
                             curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is in normal range (" + obj.fspo2 + ")";
                         }
 
-                        if(obj.red<=88){
+                        if(obj.red<78){
                             curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Warm up warning (" + obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
-                        else if(obj.red>=101){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
+                        else if(obj.red>=101 & obj.red<=104){
+                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Fever (" +  obj.red + ")";
+                            flag=1;
+                            colorRed=1;
+                        }
+                        else if(obj.red>=104){
+                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Reach out to doctor!! (" +  obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
