@@ -122,7 +122,7 @@
             console.log("hey");
             var msg = document.getElementById("curHealth").textContent;
             console.log(msg);
-            Email.send({
+            /*Email.send({
                 Host : "smtp.elasticemail.com",
                 Username : "goyalpriyanka.pg@gmail.com",
                 Password : "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e",
@@ -132,8 +132,20 @@
                 Body : "this is the body"
             }).then(
                 //message => alert(message)
+            );*/
+
+            Email.send({
+                SecureToken : "726cd4c1-8102-4252-9b47-d027090241da",
+                To : 'goyalpriyanka.pg@gmail.com',
+                From : "goyalpriyanka.pg@gmail.com",
+                Subject : "This is the subject",
+                Body : "And this is the body"
+            }).then(
+                //message => alert(message)
             );
             
+
+
         }
 
     </script>
