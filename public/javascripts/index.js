@@ -261,7 +261,7 @@ $(document).ready(function () {
                         else{
                             l5.style.backgroundColor = "white";
                             l6.style.backgroundColor = "white";
-                            curHealthMsg = curHealthMsg + "<br/>Temp is normal";
+                            curHealthMsg = curHealthMsg + "<br/>Temp is in normal range";
                             //document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }      
                         
