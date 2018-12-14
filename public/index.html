@@ -5,9 +5,10 @@
     <script src="javascripts/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/Chart.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/index.js" type="text/javascript" charset="utf-8"></script>
-    
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+    <script src="javascripts/smtp.js" type="text/javascript"></script>
+    <!--
+<script src="https://smtpjs.com/v3/smtp.js">
+    </script>-->
     <link href="stylesheets/style.css" rel="stylesheet" />
 
     <link id="themecss" rel="stylesheet" type="text/css" href="stylesheets/all.min.css" />
@@ -122,16 +123,16 @@
             var msg = document.getElementById("curHealth").textContent;
             console.log(msg);
             Email.send({
-    Host : "smtp.gmail.com",
-    Username : "24seppri@gmail.com",
-    Password : "24Microsoft",
-    To : 'goyalpriyanka.in@gmail.com',
-    From : "goyalpriyanka.in@gmail.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
-}).then(
-  //message => alert(message)
-);
+                Host : "smtp.elasticemail.com",
+                Username : "goyalpriyanka.pg@gmail.com",
+                Password : "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e",
+                To : 'goyalpriyanka.pg@gmail.com',
+                From : "goyalpriyanka.pg@gmail.com",
+                Subject : "This is the subject",
+                Body : "this is the body"
+            }).then(
+                //message => alert(message)
+            );
             
         }
 

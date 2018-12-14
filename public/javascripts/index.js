@@ -341,7 +341,7 @@ $(document).ready(function () {
                             colorRed=1;
                         }
                         else if(obj.red>=104){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Reach out to doctor!! (" +  obj.red + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Hyperpyrexia, Reach out to doctor!! (" +  obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
