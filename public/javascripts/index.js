@@ -30,7 +30,18 @@ $(document).ready(function () {
                              pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                              pointHoverBorderColor: "rgba(255, 204, 0, 1)",
                              data: heartRateData
-                             }
+                             },
+                             {
+                                fill: false,
+                                label: 'BeatsAvg',
+                                yAxisID: 'BeatsAvg',
+                                borderColor: "rgba(255, 204, 0, 1)",
+                                pointBoarderColor: "rgba(255, 204, 0, 1)",
+                                backgroundColor: "rgba(255, 204, 0, 0.4)",
+                                pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
+                                pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+                                data: spo2Data
+                                }
                              ]
                   }
                   
@@ -121,7 +132,16 @@ $(document).ready(function () {
                           display: true
                           },
                           position: 'left',
-                          }]
+                          },
+                          {
+                            id: 'BeatsAvg',
+                            type: 'linear',
+                            scaleLabel: {
+                            labelString: 'BeatsAvg',
+                            display: true
+                            },
+                            position: 'right',
+                            }]
                   }
                   }
                   
