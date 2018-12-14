@@ -108,18 +108,17 @@
             console.log("hey");
             var msg = document.getElementById("curHealth").textContent;
             console.log(msg);
-            
             Email.send({
-                Host : "smtp25.elasticemail.com",
-                Username : "goyalpriyanka.pg@gmail.com",
-                Password : "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e",
-                To : 'goyalpriyanka.pg@gmail.com',
-                From : "goyalpriyanka.pg@gmail.com",
-                Subject : "Your Body analysis",
-                Body : "abcdefghnkjflk"
-            }).then(
-                //message => alert(message)
-            );
+    SecureToken : "8ad8d511-b7bd-4e4e-9040-0029de06024c",
+    To : 'goyalpriyanka.pg@gmail.com',
+    From : "goyalpriyanka.pg@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  //message => alert(message)
+);
+
+            
         }
 
     </script>
