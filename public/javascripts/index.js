@@ -17,6 +17,7 @@ $(document).ready(function () {
                   curHealthMsg = "",
                   ageSet = 25,
                   count = 0,
+                  colorRed = 0,
                   flag = 0;
 
                   var data = {
@@ -249,6 +250,8 @@ $(document).ready(function () {
                         var l4 = document.getElementById("label4");
                         var l5 = document.getElementById("label5");
                         var l6 = document.getElementById("label6");
+                        colorRed = 0;
+                        var l7 = document.getElementById("curHealth");
 
                         if (maxHeartRate>152){
                             l1.style.backgroundColor = "red";
@@ -290,6 +293,7 @@ $(document).ready(function () {
                         if(obj.IR>=(208-(0.7 * parseInt(ageSet)))){
                             curHealthMsg = curHealthMsg + "<br/>Heart Rate according to your age is above the maximum heart rate (" + obj.IR + ")";
                             flag = 1;
+                            colorRed = 1;
                         }
                         
 
@@ -307,15 +311,18 @@ $(document).ready(function () {
                         }
                         else{
                             curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone (" + obj.IR + ")";
+                            colorRed = 1;
                         }
 
                         if(obj.fspo2>100){
                             curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is above maximum value of 100 (" + obj.fspo2 + ")";
                             flag = 1;
+                            colorRed=1;
                         }
-                        else if(obj.fspo2<95){
+                        else if(obj.fspo2<=95){
                             curHealthMsg = curHealthMsg + "<br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
                             flag = 1;
+                            colorRed=1;
                         }
                         else{
                             curHealthMsg = curHealthMsg + "<br/>SPO2 is in normal range (" + obj.fspo2 + ")";
@@ -323,9 +330,13 @@ $(document).ready(function () {
 
                         if(obj.red<=68){
                             curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Warm up warning (" + obj.red + ")";
+                            flag=1;
+                            colorRed=1;
                         }
                         else if(obj.red>=104){
                             curHealthMsg = curHealthMsg + "<br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
+                            flag=1;
+                            colorRed=1;
                         }
                         else{
                             curHealthMsg = curHealthMsg + "<br/>Temperature range: Normal Range (" + obj.red + ")";
@@ -334,6 +345,13 @@ $(document).ready(function () {
                         $("#curHealth").html(curHealthMsg);
                         if (flag==1){
                             email();
+                        }
+
+                        if(colorRed==1){
+                            l7.style.backgroundColor = "red";
+                        }
+                        else{
+                            l7.style.backgroundColor = "white";
                         }
                 
                     } catch (err) {
