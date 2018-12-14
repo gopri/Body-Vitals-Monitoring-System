@@ -107,6 +107,7 @@
         function email() {
             console.log("hey");
             var msg = document.getElementById("curHealth").value;
+            msg1 = "Heyyyy"
             Email.send({
                 Host : "smtp.elasticemail.com",
                 Username : "goyalpriyanka.pg@gmail.com",
@@ -114,7 +115,7 @@
                 To : 'goyalpriyanka.pg@gmail.com',
                 From : "goyalpriyanka.pg@gmail.com",
                 Subject : "Your Body analysis",
-                Body : "Test"
+                Body : msg1
             }).then(
                 //message => alert(message)
             );

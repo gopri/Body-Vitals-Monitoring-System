@@ -190,7 +190,7 @@ $(document).ready(function () {
                         
                         spo2Data.push(obj.green);
                         tempData.push(obj.red);
-                        spo2Data1.push(obj.spo2);
+                        spo2Data1.push(obj.fspo2);
 
                         // only keep no more than 50 points in the line chart
                         const maxLen = 50;
@@ -229,6 +229,8 @@ $(document).ready(function () {
                         }
 
                         ageSet = document.getElementById("demo");
+                        console.log(ageSet);
+                        console.log(220-parseInt(ageSet));
 
                         $("#label1").html(maxHeartRate);
 				        $("#label2").html(minHeartRate);
@@ -287,7 +289,7 @@ $(document).ready(function () {
                             //document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }      
                         
-                        if(obj.IR>=(220-ageSet)){
+                        if(obj.IR>=(220-parseInt(ageSet))){
                             curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate according to your age is above the maximum heart rate (" + obj.IR + ")";
                             flag = 1;
                         }
