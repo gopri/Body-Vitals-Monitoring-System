@@ -35,11 +35,11 @@ $(document).ready(function () {
                                 fill: false,
                                 label: 'BeatsAvg',
                                 yAxisID: 'BeatsAvg',
-                                borderColor: "rgba(255, 204, 0, 1)",
-                                pointBoarderColor: "rgba(255, 204, 0, 1)",
-                                backgroundColor: "rgba(255, 204, 0, 0.4)",
-                                pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
-                                pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+                                borderColor: "rgba(24, 120, 240, 1)",
+                                pointBoarderColor: "rgba(24, 120, 240, 1)",
+                                backgroundColor: "rgba(24, 120, 240, 0.4)",
+                                pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
+                                pointHoverBorderColor: "rgba(24, 120, 240, 1)",
                                 data: spo2Data
                                 }
                              ]
