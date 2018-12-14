@@ -53,8 +53,8 @@ $(document).ready(function () {
                   datasets: [
                              {
                              fill: false,
-                             label: 'SpO2',
-                             yAxisID: 'SpO2',
+                             label: 'SPO2',
+                             yAxisID: 'SPO2',
                              borderColor: "rgba(255, 204, 0, 1)",
                              pointBoarderColor: "rgba(255, 204, 0, 1)",
                              backgroundColor: "rgba(255, 204, 0, 0.4)",
@@ -104,7 +104,7 @@ $(document).ready(function () {
                   var basicOption2 = {
                   title: {
                   display: true,
-                  text: 'SpO2 Real-time Data',
+                  text: 'SPO2 Real-time Data',
                   fontSize: 20
                   },
                   scales: {
@@ -208,24 +208,25 @@ $(document).ready(function () {
                         myLineChart2.update();
                         myLineChart3.update();
 
-                        if (maxHeartRate<obj.IR || maxHeartRate>220){
+                        if (maxHeartRate<obj.IR){
                             maxHeartRate = obj.IR;
                         }
-                        if (minHeartRate>obj.IR || minHeartRate<65){
+                        if (minHeartRate>obj.IR){
                             minHeartRate = obj.IR;
                         }
+
                         
-                        if (maxSPO2<obj.fspo2 || maxSPO2>105){
+                        if (maxSPO2<obj.fspo2){
                             maxSPO2 = obj.fspo2;
                         }
-                        if (minSPO2>obj.fspo2 || minSPO2<85){
+                        if (minSPO2>obj.fspo2){
                             minSPO2 = obj.fspo2;
                         }
                         
-                        if (maxTemp<obj.red || maxTemp > 101){
+                        if (maxTemp<obj.red){
                             maxTemp = obj.red;
                         }
-                        if (minTemp>obj.red || minTemp < 88){
+                        if (minTemp>obj.red){
                             minTemp = obj.red;
                         }
 
@@ -276,11 +277,11 @@ $(document).ready(function () {
                             l1.style.backgroundColor = "white";
                         }
 
-                        if (maxTemp>101){
+                        if (maxTemp>104){
                             l5.style.backgroundColor = "red";
                             flag = 1;
                         }
-                        else if(minTemp<88){
+                        else if(minTemp<68){
                             l6.style.backgroundColor = "red";
                             flag = 1;
                         }
@@ -294,54 +295,51 @@ $(document).ready(function () {
                             flag = 1;
                             colorRed = 1;
                         }
-                        else{
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate according to your age is in normal range (" + obj.IR + ")";
-                        }
                         
 
                         if(obj.IR<=89){
                             curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Normal (" + obj.IR + ")";
                         }
                         else if(obj.IR<=110){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Out of Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Out of Zone (" + obj.IR + ")";
                         }
                         else if(obj.IR<=135){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Fat Burn Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Fat Burn Zone (" + obj.IR + ")";
                         }
                         else if(obj.IR<=152){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Cardio Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Cardio Zone (" + obj.IR + ")";
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Peak Zone (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone (" + obj.IR + ")";
                             colorRed = 1;
                         }
 
                         if(obj.fspo2>100){
-                            curHealthMsg = curHealthMsg + "<br/><br/>SpO2 is above maximum value of 100 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is above maximum value of 100 (" + obj.fspo2 + ")";
                             flag = 1;
                             colorRed=1;
                         }
                         else if(obj.fspo2<=95){
-                            curHealthMsg = curHealthMsg + "<br/><br/>SpO2 is below minimum value of 95 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
                             flag = 1;
                             colorRed=1;
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/><br/>SpO2 is in normal range (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/>SPO2 is in normal range (" + obj.fspo2 + ")";
                         }
 
-                        if(obj.red<=88){
+                        if(obj.red<=68){
                             curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Warm up warning (" + obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
-                        else if(obj.red>=101){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
+                        else if(obj.red>=104){
+                            curHealthMsg = curHealthMsg + "<br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Normal Range (" + obj.red + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Temperature range: Normal Range (" + obj.red + ")";
                         }
 
                         $("#curHealth").html(curHealthMsg);
