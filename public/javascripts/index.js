@@ -208,25 +208,24 @@ $(document).ready(function () {
                         myLineChart2.update();
                         myLineChart3.update();
 
-                        if (maxHeartRate<obj.IR){
+                        if (maxHeartRate<obj.IR || maxHeartRate>220){
                             maxHeartRate = obj.IR;
                         }
-                        if (minHeartRate>obj.IR){
+                        if (minHeartRate>obj.IR || minHeartRate<65){
                             minHeartRate = obj.IR;
                         }
-
                         
-                        if (maxSPO2<obj.fspo2){
+                        if (maxSPO2<obj.fspo2 || maxSPO2>105){
                             maxSPO2 = obj.fspo2;
                         }
-                        if (minSPO2>obj.fspo2){
+                        if (minSPO2>obj.fspo2 || minSPO2<85){
                             minSPO2 = obj.fspo2;
                         }
                         
-                        if (maxTemp<obj.red){
+                        if (maxTemp<obj.red || maxTemp > 101){
                             maxTemp = obj.red;
                         }
-                        if (minTemp>obj.red){
+                        if (minTemp>obj.red || minTemp < 88){
                             minTemp = obj.red;
                         }
 
@@ -277,11 +276,11 @@ $(document).ready(function () {
                             l1.style.backgroundColor = "white";
                         }
 
-                        if (maxTemp>104){
+                        if (maxTemp>101){
                             l5.style.backgroundColor = "red";
                             flag = 1;
                         }
-                        else if(minTemp<68){
+                        else if(minTemp<88){
                             l6.style.backgroundColor = "red";
                             flag = 1;
                         }
@@ -328,12 +327,12 @@ $(document).ready(function () {
                             curHealthMsg = curHealthMsg + "<br/>SPO2 is in normal range (" + obj.fspo2 + ")";
                         }
 
-                        if(obj.red<=68){
+                        if(obj.red<=88){
                             curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Warm up warning (" + obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
-                        else if(obj.red>=104){
+                        else if(obj.red>=101){
                             curHealthMsg = curHealthMsg + "<br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
                             flag=1;
                             colorRed=1;
