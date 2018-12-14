@@ -239,7 +239,7 @@ $(document).ready(function () {
                         var l5 = document.getElementById("label5");
                         var l6 = document.getElementById("label6");
 
-                        if (maxHeartRate>(220-ageSet)){
+                        if (maxHeartRate>152){
                             l1.style.backgroundColor = "red";
                             flag = 1;
                             curHealthMsg = curHealthMsg + "\r\nHeart rate above max possible heart rate";
@@ -251,7 +251,7 @@ $(document).ready(function () {
                             //document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
 
-                        if (minHeartRate>100 || minHeartRate<60){
+                        if (minHeartRate<65){
                             l2.style.backgroundColor = "red";
                             flag = 1;
                             curHealthMsg = curHealthMsg + "\r\nResting Heart rate is not in normal range of 60 to 100 beats per minute";
@@ -263,16 +263,16 @@ $(document).ready(function () {
                             //document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
                         }
 
-                        if (maxTemp>99.5){
+                        if (maxTemp>104){
                             l5.style.backgroundColor = "red";
                             flag = 1;
-                            curHealthMsg = curHealthMsg + "\r\nTemp is in more than 99.5F";
+                            curHealthMsg = curHealthMsg + "\r\nTemp is in more than 104F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
-                        else if(minTemp<97.7){
+                        else if(minTemp<68){
                             l6.style.backgroundColor = "red";
                             flag = 1;
-                            curHealthMsg = curHealthMsg + "\r\nTemp is in below 97.7F";
+                            curHealthMsg = curHealthMsg + "\r\nTemp is in below 68F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
                         else{
@@ -282,7 +282,7 @@ $(document).ready(function () {
                             //document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }      
                         
-                        $("#curHealth").html(curHealthMsg);
+                        $("#curHealth").html("a<br>b");
                         if (flag==1){
                             email();
                         }
