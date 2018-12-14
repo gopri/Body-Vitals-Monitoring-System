@@ -7,6 +7,7 @@ $(document).ready(function () {
                   tempData = [],
                   repCount = 0,
                   spo2Data = [],
+                  spo2Data1 = [],
                   maxHeartRate = -100000,
                   minHeartRate = 100000,
                   maxTemp = -100000,
@@ -50,14 +51,14 @@ $(document).ready(function () {
                   datasets: [
                              {
                              fill: false,
-                             label: 'BeatsAvg',
-                             yAxisID: 'BeatsAvg',
+                             label: 'SPO2',
+                             yAxisID: 'SPO2',
                              borderColor: "rgba(255, 204, 0, 1)",
                              pointBoarderColor: "rgba(255, 204, 0, 1)",
                              backgroundColor: "rgba(255, 204, 0, 0.4)",
                              pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                              pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                             data: spo2Data
+                             data: spo2Data1
                              }
                              ]
                   }
@@ -101,15 +102,15 @@ $(document).ready(function () {
                   var basicOption2 = {
                   title: {
                   display: true,
-                  text: 'BeatsAvg Real-time Data',
+                  text: 'SPO2 Real-time Data',
                   fontSize: 20
                   },
                   scales: {
                   yAxes: [{
-                          id: 'BeatsAvg',
+                          id: 'SPO2',
                           type: 'linear',
                           scaleLabel: {
-                          labelString: 'BeatsAvg',
+                          labelString: 'SPO2',
                           display: true
                           },
                           position: 'left',
@@ -120,7 +121,7 @@ $(document).ready(function () {
                   var basicOption = {
                   title: {
                   display: true,
-                  text: 'Heart Rate Real-time Data',
+                  text: 'Heart Rate & BeatsAvg Real-time Data',
                   fontSize: 20
                   },
                   scales: {
@@ -189,6 +190,7 @@ $(document).ready(function () {
                         
                         spo2Data.push(obj.green);
                         tempData.push(obj.red);
+                        spo2Data1.push(obj.spo2);
 
                         // only keep no more than 50 points in the line chart
                         const maxLen = 50;
