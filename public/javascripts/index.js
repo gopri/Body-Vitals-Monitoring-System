@@ -274,16 +274,16 @@ $(document).ready(function () {
                             curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Normal (" + obj.IR + ")";
                         }
                         else if(obj.IR<=110){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Out of Zone(" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Out of Zone (" + obj.IR + ")";
                         }
                         else if(obj.IR<=135){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Fat Burn Zone(" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Fat Burn Zone (" + obj.IR + ")";
                         }
                         else if(obj.IR<=152){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Cardio Zone(" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Cardio Zone (" + obj.IR + ")";
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone(" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone (" + obj.IR + ")";
                         }
 
                         if(obj.red<=68){
