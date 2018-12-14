@@ -16,6 +16,7 @@ $(document).ready(function () {
                   minSPO2 = 100000,
                   curHealthMsg = "",
                   ageSet = 25,
+                  count = 0,
                   flag = 0;
 
                   var data = {
@@ -207,90 +208,90 @@ $(document).ready(function () {
                         myLineChart3.update();
 
                         if (maxHeartRate<obj.IR){
-                            maxHeartRate = obj.IR
+                            maxHeartRate = obj.IR;
                         }
                         if (minHeartRate>obj.IR){
-                            minHeartRate = obj.IR
+                            minHeartRate = obj.IR;
                         }
 
-                        /*
-                        if (maxSPO2<obj.IR){
-                            maxSPO2 = obj.IR
+                        
+                        if (maxSPO2<obj.fspo2){
+                            maxSPO2 = obj.fspo2;
                         }
-                        if (minSPO2>obj.IR){
-                            minSPO2 = obj.IR
+                        if (minSPO2>obj.fspo2){
+                            minSPO2 = obj.fspo2;
                         }
-                        */
+                        
                         if (maxTemp<obj.red){
-                            maxTemp = obj.red
+                            maxTemp = obj.red;
                         }
                         if (minTemp>obj.red){
-                            minTemp = obj.red
+                            minTemp = obj.red;
                         }
 
                         ageSet = document.getElementById("demo").innerHTML;
 
+                        if(obj.IR>=152){
+                            count = count+1;
+                        }
+
                         $("#label1").html(maxHeartRate);
 				        $("#label2").html(minHeartRate);
-                        //$("#label3").html(maxSPO2);
-                        //$("#label4").html(minSPO2);
+                        $("#label3").html(maxSPO2);
+                        $("#label4").html(minSPO2);
 				        $("#label5").html(maxTemp);
                         $("#label6").html(minTemp);
+                        $("#label7").html(count);
 
                         var l1 = document.getElementById("label1");
                         var l2 = document.getElementById("label2");
-                        //var l3 = document.getElementById("label3");
-                        //var l4 = document.getElementById("label4");
+                        var l3 = document.getElementById("label3");
+                        var l4 = document.getElementById("label4");
                         var l5 = document.getElementById("label5");
                         var l6 = document.getElementById("label6");
 
                         if (maxHeartRate>152){
                             l1.style.backgroundColor = "red";
                             flag = 1;
-                            //curHealthMsg = curHealthMsg + "<br/>Heart rate above max possible heart rate";
-                            //document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
                             l1.style.backgroundColor = "white";
-                            //curHealthMsg = curHealthMsg + "<br/>Heart rate is normal";
-                            //document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
 
-                        /*if (minHeartRate<65){
-                            l2.style.backgroundColor = "red";
+                        if (maxSPO2>100){
+                            l3.style.backgroundColor = "red";
                             flag = 1;
-                            curHealthMsg = curHealthMsg + "<br/>Resting Heart rate is not in normal range of 60 to 100 beats per minute";
-                            //document.getElementById("curHealth").innerHTML += "Resting Heart rate is not in normal range of 60 to 100 beats per minute"
                         }
                         else{
-                            l2.style.backgroundColor = "white";
-                            curHealthMsg = curHealthMsg + "<br/>Resting Heart rate is normal";
-                            //document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
-                        }*/
+                            l1.style.backgroundColor = "white";
+                        }
+
+                        if (minSPO2<95){
+                            l4.style.backgroundColor = "red";
+                            flag = 1;
+                        }
+                        else{
+                            l1.style.backgroundColor = "white";
+                        }
 
                         if (maxTemp>104){
                             l5.style.backgroundColor = "red";
                             flag = 1;
-                            //curHealthMsg = curHealthMsg + "<br/>Temp is in more than 104F";
-                            //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
                         else if(minTemp<68){
                             l6.style.backgroundColor = "red";
                             flag = 1;
-                            //curHealthMsg = curHealthMsg + "\r\nTemp is in below 68F";
-                            //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
                         else{
                             l5.style.backgroundColor = "white";
                             l6.style.backgroundColor = "white";
-                            //curHealthMsg = curHealthMsg + "<br/>Temp is in normal range";
-                            //document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }      
                         
                         if(obj.IR>=(220-parseInt(ageSet))){
                             curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate according to your age is above the maximum heart rate (" + obj.IR + ")";
                             flag = 1;
                         }
+                        
 
                         if(obj.IR<=89){
                             curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Normal (" + obj.IR + ")";
@@ -306,6 +307,18 @@ $(document).ready(function () {
                         }
                         else{
                             curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone (" + obj.IR + ")";
+                        }
+
+                        if(obj.fspo2>100){
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is above maximum value of 100 (" + obj.fspo2 + ")";
+                            flag = 1;
+                        }
+                        else if(obj.fspo2<95){
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
+                            flag = 1;
+                        }
+                        else{
+                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is in normal range (" + obj.fspo2 + ")";
                         }
 
                         if(obj.red<=68){
