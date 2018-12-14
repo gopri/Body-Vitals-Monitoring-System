@@ -288,7 +288,7 @@ $(document).ready(function () {
                         }      
                         
                         if(obj.IR>=(220-parseInt(ageSet))){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate according to your age is above the maximum heart rate (" + obj.IR + ")";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate according to your age is above the maximum heart rate (" + obj.IR + ")";
                             flag = 1;
                         }
                         
@@ -314,11 +314,11 @@ $(document).ready(function () {
                             flag = 1;
                         }
                         else if(obj.fspo2<95){
-                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
                             flag = 1;
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is in normal range (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/>SPO2 is in normal range (" + obj.fspo2 + ")";
                         }
 
                         if(obj.red<=68){
