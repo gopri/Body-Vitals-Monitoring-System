@@ -53,8 +53,8 @@ $(document).ready(function () {
                   datasets: [
                              {
                              fill: false,
-                             label: 'SPO2',
-                             yAxisID: 'SPO2',
+                             label: 'SpO2',
+                             yAxisID: 'SpO2',
                              borderColor: "rgba(255, 204, 0, 1)",
                              pointBoarderColor: "rgba(255, 204, 0, 1)",
                              backgroundColor: "rgba(255, 204, 0, 0.4)",
@@ -104,7 +104,7 @@ $(document).ready(function () {
                   var basicOption2 = {
                   title: {
                   display: true,
-                  text: 'SPO2 Real-time Data',
+                  text: 'SpO2 Real-time Data',
                   fontSize: 20
                   },
                   scales: {
@@ -317,17 +317,17 @@ $(document).ready(function () {
                         }
 
                         if(obj.fspo2>100){
-                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is above maximum value of 100 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SpO2 is above maximum value of 100 (" + obj.fspo2 + ")";
                             flag = 1;
                             colorRed=1;
                         }
                         else if(obj.fspo2<=95){
-                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is below minimum value of 95 (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SpO2 is below minimum value of 95 (" + obj.fspo2 + ")";
                             flag = 1;
                             colorRed=1;
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/><br/>SPO2 is in normal range (" + obj.fspo2 + ")";
+                            curHealthMsg = curHealthMsg + "<br/><br/>SpO2 is in normal range (" + obj.fspo2 + ")";
                         }
 
                         if(obj.red<=88){
