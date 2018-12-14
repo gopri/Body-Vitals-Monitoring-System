@@ -25,7 +25,7 @@
 
     <div style="overflow: hidden;" align="center">
             <p style="float: left;">Age: </p>
-            <p style="float: left;" id="demo">"25"</p>
+            <p style="float: left;" id="demo">25</p>
     </div>
     
     
@@ -106,7 +106,7 @@
 
         function email() {
             console.log("hey");
-            var msg = document.getElementById("curHealth").value;
+            var msg = document.getElementById("curHealth").innerHTML;
             msg1 = "Heyyyy"
             Email.send({
                 Host : "smtp.elasticemail.com",
@@ -115,7 +115,7 @@
                 To : 'goyalpriyanka.pg@gmail.com',
                 From : "goyalpriyanka.pg@gmail.com",
                 Subject : "Your Body analysis",
-                Body : msg1
+                Body : msg
             }).then(
                 //message => alert(message)
             );
