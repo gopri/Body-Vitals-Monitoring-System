@@ -229,9 +229,6 @@ $(document).ready(function () {
                         }
 
                         ageSet = document.getElementById("demo").innerHTML;
-                        console.log(ageSet);
-                        console.log(220-parseInt(ageSet));
-                        console.log($("#demo"));
 
                         $("#label1").html(maxHeartRate);
 				        $("#label2").html(minHeartRate);
