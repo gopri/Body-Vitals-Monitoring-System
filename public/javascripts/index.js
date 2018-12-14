@@ -287,7 +287,7 @@ $(document).ready(function () {
                             l6.style.backgroundColor = "white";
                         }      
                         
-                        if(obj.IR>=(220-parseInt(ageSet))){
+                        if(obj.IR>=(208-(0.7 * parseInt(ageSet)))){
                             curHealthMsg = curHealthMsg + "<br/>Heart Rate according to your age is above the maximum heart rate (" + obj.IR + ")";
                             flag = 1;
                         }
