@@ -54,27 +54,42 @@
         <div>
             <p style="float: left;"><h3>General Info</h3>
             <h4>
-                Maximum Heart Rate: 220 - Age<br>
-                Heart Rate ranges:<br>
-                Less than 89: Normal<br>
-                Between 89-110: Neither running nor walking<br>
-                Between 110-135: Fat Burn Zone<br>
-                Between 135-152: Cardio Zone<br>
-                Above 152: Peak Zone<br>
-                <br>
-                <br>
-                Normal Temperature Range: 97.7-99.5 °F<br>
-                Warnings:<br>
-                Less than 68F: Warm up Warning<br>
-                More than 104F: Suggestion to see a doctor<br>
-                <br>
+                <table>
+                    <tr>
+                        <td>
+                            Heart Rate
+                        </td>
+                        <td>
+                            Temperature
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                Maximum Heart Rate according to age: 220 - Age<br>
+                                <br>
+                                General Heart Rate ranges:<br>
+                                Less than 89: Normal<br>
+                                Between 89-110: Neither running nor walking<br>
+                                Between 110-135: Fat Burn Zone<br>
+                                Between 135-152: Cardio Zone<br>
+                                Above 152: Peak Zone<br>
+                        </td>
+                        <td>
+                                Normal Temperature Range: 97.7-99.5 °F<br>
+                                <br>
+                                Warnings:<br>
+                                Less than 68F: Warm up Warning<br>
+                                More than 104F: Suggestion to see a doctor<br>
+                        </td>
+                    </tr>
+                </table>
                 <br>
             </h4>
             </p>
         </div>
         <br>
         <div>
-            <p style="float: left;"><h3>Current Health Analysis</h3>
+            <p style="float: left;"><h3>Current Body Parameters Analysis</h3>
             <p id="curHealth">
 
             </p></p>
@@ -99,7 +114,7 @@
                 To : 'goyalpriyanka.pg@gmail.com',
                 From : "goyalpriyanka.pg@gmail.com",
                 Subject : "This is the subject",
-                Body : "Body msg"
+                Body : msg
             }).then(
                 //message => alert(message)
             );

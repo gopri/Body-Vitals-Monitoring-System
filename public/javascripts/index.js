@@ -225,16 +225,16 @@ $(document).ready(function () {
                         if (maxHeartRate>152){
                             l1.style.backgroundColor = "red";
                             flag = 1;
-                            curHealthMsg = curHealthMsg + "<br/>Heart rate above max possible heart rate";
+                            //curHealthMsg = curHealthMsg + "<br/>Heart rate above max possible heart rate";
                             //document.getElementById("curHealth").innerHTML = "Heart rate above max possible heart rate"
                         }
                         else{
                             l1.style.backgroundColor = "white";
-                            curHealthMsg = curHealthMsg + "<br/>Heart rate is normal";
+                            //curHealthMsg = curHealthMsg + "<br/>Heart rate is normal";
                             //document.getElementById("curHealth").innerHTML = "Heart rate is normal"
                         }
 
-                        if (minHeartRate<65){
+                        /*if (minHeartRate<65){
                             l2.style.backgroundColor = "red";
                             flag = 1;
                             curHealthMsg = curHealthMsg + "<br/>Resting Heart rate is not in normal range of 60 to 100 beats per minute";
@@ -244,48 +244,56 @@ $(document).ready(function () {
                             l2.style.backgroundColor = "white";
                             curHealthMsg = curHealthMsg + "<br/>Resting Heart rate is normal";
                             //document.getElementById("curHealth").innerHTML = "Resting Heart rate is normal"
-                        }
+                        }*/
 
                         if (maxTemp>104){
                             l5.style.backgroundColor = "red";
                             flag = 1;
-                            curHealthMsg = curHealthMsg + "<br/>Temp is in more than 104F";
+                            //curHealthMsg = curHealthMsg + "<br/>Temp is in more than 104F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in more than 99.5F"
                         }
                         else if(minTemp<68){
                             l6.style.backgroundColor = "red";
                             flag = 1;
-                            curHealthMsg = curHealthMsg + "\r\nTemp is in below 68F";
+                            //curHealthMsg = curHealthMsg + "\r\nTemp is in below 68F";
                             //document.getElementById("curHealth").innerHTML += "Temp is in below 97.7F"
                         }
                         else{
                             l5.style.backgroundColor = "white";
                             l6.style.backgroundColor = "white";
-                            curHealthMsg = curHealthMsg + "<br/>Temp is in normal range";
+                            //curHealthMsg = curHealthMsg + "<br/>Temp is in normal range";
                             //document.getElementById("curHealth").innerHTML = "Temp is normal"
                         }      
                         
+                        if(obj.IR>=(220-ageSet)){
+                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate according to your age is above the maximum heart rate (" + obj.IR + ")";
+                            flag = 1;
+                        }
+
                         if(obj.IR<=89){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Normal";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Heart Rate range: Normal (" + obj.IR + ")";
                         }
                         else if(obj.IR<=110){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Out of Zone";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Out of Zone(" + obj.IR + ")";
                         }
                         else if(obj.IR<=135){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Fat Burn Zone";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Fat Burn Zone(" + obj.IR + ")";
                         }
                         else if(obj.IR<=152){
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Cardio Zone";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Cardio Zone(" + obj.IR + ")";
                         }
                         else{
-                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone";
+                            curHealthMsg = curHealthMsg + "<br/>Heart Rate range: Peak Zone(" + obj.IR + ")";
                         }
 
                         if(obj.red<=68){
-                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Warm up warning";
+                            curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Warm up warning (" + obj.red + ")";
                         }
                         else if(obj.red>=104){
-                            curHealthMsg = curHealthMsg + "<br/>Temperature range: Suggestion to see a doctor";
+                            curHealthMsg = curHealthMsg + "<br/>Temperature range: Suggestion to see a doctor (" +  obj.red + ")";
+                        }
+                        else{
+                            curHealthMsg = curHealthMsg + "<br/>Temperature range: Normal Range (" + obj.red + ")";
                         }
 
                         $("#curHealth").html(curHealthMsg);
