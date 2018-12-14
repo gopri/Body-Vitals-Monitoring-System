@@ -209,24 +209,59 @@ $(document).ready(function () {
                         myLineChart3.update();
 
                         if (maxHeartRate<obj.IR || maxHeartRate>220){
-                            maxHeartRate = obj.IR;
+                            if(obj.IR>220){
+                                maxHeartRate = 220;
+                            }
+                            else{
+                                maxHeartRate = obj.IR;
+                            }
+                            
                         }
                         if (minHeartRate>obj.IR || minHeartRate<65){
-                            minHeartRate = obj.IR;
+                            if(obj.IR<65){
+                                minHeartRate = 65;
+                            }
+                            else{
+                                minHeartRate = obj.IR;
+                            }
                         }
                         
                         if (maxSPO2<obj.fspo2 || maxSPO2>105){
-                            maxSPO2 = obj.fspo2;
+                            if(obj.fspo2>105){
+                                maxSPO2 = 105;
+                            }
+                            else{
+                                maxSPO2 = obj.fspo2;
+                            }
+                            
                         }
                         if (minSPO2>obj.fspo2 || minSPO2<85){
-                            minSPO2 = obj.fspo2;
+                            if(obj.fspo2<85){
+                                minSPO2 = 85;
+                            }
+                            else{
+                                minSPO2 = obj.fspo2;
+                            }
+                            
                         }
                         
                         if (maxTemp<obj.red || maxTemp > 101){
-                            maxTemp = obj.red;
+                            if(obj.red>101){
+                                maxTemp = 101;
+                            }
+                            else{
+                                maxTemp = obj.red;
+                            }
+                            
                         }
                         if (minTemp>obj.red || minTemp < 78){
-                            minTemp = obj.red;
+                            if(obj.red<78){
+                                minTemp = 78;
+                            }
+                            else{
+                                minTemp = obj.red;
+                            }
+                            
                         }
 
                         ageSet = document.getElementById("demo").innerHTML;
@@ -335,12 +370,12 @@ $(document).ready(function () {
                             flag=1;
                             colorRed=1;
                         }
-                        else if(obj.red>=101 & obj.red<=104){
+                        else if(obj.red>=101 && obj.red<=104){
                             curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Fever (" +  obj.red + ")";
                             flag=1;
                             colorRed=1;
                         }
-                        else if(obj.red>=104){
+                        else if(obj.red>104){
                             curHealthMsg = curHealthMsg + "<br/><br/>Temperature range: Hyperpyrexia, Reach out to doctor!! (" +  obj.red + ")";
                             flag=1;
                             colorRed=1;
