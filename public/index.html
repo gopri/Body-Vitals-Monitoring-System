@@ -54,19 +54,19 @@
         <div>
             <p style="float: left;"><h3>General Info</h3>
             <h4>
-                Maximum Heart Rate: 220 - Age
-                Heart Rate ranges:
-                Less than 89: Normal
-                Between 89-110: Neither running nor walking
-                Between 110-135: Fat Burn Zone
-                Between 135-152: Cardio Zone
-                Above 152: Peak Zone
+                Maximum Heart Rate: 220 - Age<br>
+                Heart Rate ranges:<br>
+                Less than 89: Normal<br>
+                Between 89-110: Neither running nor walking<br>
+                Between 110-135: Fat Burn Zone<br>
+                Between 135-152: Cardio Zone<br>
+                Above 152: Peak Zone<br>
                 <br>
                 <br>
-                Normal Temperature Range: 97.7-99.5 °F
-                Warnings:
-                Less than 68F: Warm up Warning
-                More than 104F: Suggestion to see a doctor
+                Normal Temperature Range: 97.7-99.5 °F<br>
+                Warnings:<br>
+                Less than 68F: Warm up Warning<br>
+                More than 104F: Suggestion to see a doctor<br>
                 <br>
                 <br>
             </h4>
@@ -92,11 +92,15 @@
         function email() {
             console.log("hey");
             var msg = document.getElementById("curHealth").value;
-            Email.send("goyalpriyanka.pg@gmail.com",
-            "goyalpriyanka.pg@gmail.com",
-            "Health Report",
-            msg,
-            {token: "e5b26dfd-d3aa-40b7-9467-603909c6a8e9"});
+            Email.send({
+                SecureToken : "e5b26dfd-d3aa-40b7-9467-603909c6a8e9",
+                To : 'goyalpriyanka.pg@gmail.com',
+                From : "goyalpriyanka.pg@gmail.com",
+                Subject : "This is the subject",
+                Body : msg
+            }).then(
+                message => alert(message)
+            );
         }
 
     </script>
