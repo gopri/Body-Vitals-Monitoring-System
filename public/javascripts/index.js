@@ -228,7 +228,7 @@ $(document).ready(function () {
                             minTemp = obj.red
                         }
 
-                        ageSet = document.getElementById("demo").value;
+                        ageSet = document.getElementById("demo").innerHTML;
                         console.log(ageSet);
                         console.log(220-parseInt(ageSet));
                         console.log($("#demo"));
