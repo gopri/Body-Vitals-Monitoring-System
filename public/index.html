@@ -122,15 +122,14 @@
         function email() {
             console.log("hey");
             var msg = document.getElementById("curHealth").textContent;
-            console.log(msg);
             Email.send({
                 Host : "smtp.elasticemail.com",
                 Username : "goyalpriyanka.pg@gmail.com",
                 Password : "68747b4e-ebdc-48e3-9b2b-2b39340d4c5e",
                 To : 'goyalpriyanka.in@gmail.com',
                 From : "goyalpriyanka.pg@gmail.com",
-                Subject : "This is the subject",
-                Body : msg
+                Subject : "Body Vitals Monitoring System",
+                Body : "You got a warning. Please check our app!"
             }).then(
                 //message => alert(message)
             );
