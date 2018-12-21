@@ -17,8 +17,9 @@ Health monitoring is always a must. We are monitoring all the vitals that a pati
 4. It also suggests user to get layered up/meet a doctor and monitor hyperpyrexia which is an emergency and needs immediate attention from a medical professional.
 
 ## Referneces
-1. [Thesis on Cardiac Health Monitoring] (http://dspace.bracu.ac.bd/xmlui/bitstream/handle/10361/8621/13321005%2C13321032%2C13121082_EEE.pdf?sequence=1&isAllowed=y)
-2. UC Irvine CS244P lab demos
-3. Fitbit Heart Rate Zone Help Article 4. Harvard's Men's Health Watch publication on Max Heart Rate
-5. MAX30105 Particle and Pulse Ox Sensor Hookup Guide
-6. ESP8266 Thing Hookup Guide
+1. [Thesis on Cardiac Health Monitoring](http://dspace.bracu.ac.bd/xmlui/bitstream/handle/10361/8621/13321005%2C13321032%2C13121082_EEE.pdf?sequence=1&isAllowed=y)
+2. [UC Irvine CS244P lab demos](https://login.uci.edu/ucinetid/webauth?return_url=https%3A%2F%2Feee.uci.edu%2F18f%2F35430%2Fhome%2FDemo_6.pdf)
+3. [Fitbit Heart Rate Zone Help Article](https://help.fitbit.com/articles/en_US/Help_article/1565)
+4. [Harvard's Men's Health Watch publication on Max Heart Rate](https://www.bodybuilding.com/fun/matt62.htm)
+5. [MAX30105 Particle and Pulse Ox Sensor Hookup Guide](https://learn.sparkfun.com/tutorials/max30105-particle-and-pulse-ox-sensor-hookup-guide/all)
+6. [ESP8266 Thing Hookup Guide](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/installing-the-esp8266-arduino-addon)
