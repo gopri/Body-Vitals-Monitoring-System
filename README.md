@@ -14,13 +14,10 @@ This project aims at warning individuals and providing suggestions when any of t
 
 ## Project Workflow
 ### User End
-Setup at the client includes MAX30105 sensor and ESP8266 Thing Dev. This sensor initially asks for user to place finger on sensor and then calibrates heart rate and SpO2 initially. Once calibration is done, sensor continuously monitors Body Temperature (degree Fahrenheit), Ventricular Rate, SpO2 and send that data over cloud to Web Application. We have added this code at the end of the report.
+Connect MAX30105 particle sensor with Sparkfun ESP8266 Thing Dev. This sensor initially asks for user to place finger on sensor and then calibrates heart rate and SpO2. Once calibration is done, sensor continuously monitors Body Temperature (degree Fahrenheit), Ventricular Rate, SpO2 and send that data over cloud to Web Application.
 
 ### Cloud Server(Microsoft Azure)
-We are sending data from client’s end to the Azure server, where we have hosted our Web
-Application. Our device is registered at the server and using our IOT Hub’s connection key and
-Device registration connection key, we are making connection between our local system and
-the remote server.
+It sends data from client’s end to the Azure server, where webapp is hosted. Device is already registered at the server and using the IOT Hub’s connection string and Device registration connection string, it makes connection between local system and the remote server.
 
 ## Hardware Components used
 1. Sparkfun ESP8266 Thing Dev
