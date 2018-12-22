@@ -23,11 +23,11 @@ It sends data from client’s end to the Azure server, where webapp is hosted. D
 1. Sparkfun ESP8266 Thing Dev
 2. MAX30105 Particle Sensor
 
-Check [this](https://learn.sparkfun.com/tutorials/esp8266-thing-development-board-hookup-guide/all) for more details on Sparkfun ESP8266 Thing Development Board.\s
+Check [this](https://learn.sparkfun.com/tutorials/esp8266-thing-development-board-hookup-guide/all) for more details on Sparkfun ESP8266 Thing Development Board.  
 Check [this](https://learn.sparkfun.com/tutorials/max30105-particle-and-pulse-ox-sensor-hookup-guide/all) for more details on SparkFun MAX30105 Particle Sensor.
 
 ## Deploying IoTHub/Webapp in Microsoft Azure
-Follow [this tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started) to setup your device in Azure IoT hub.\s
+Follow [this tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started) to setup your device in Azure IoT hub.  
 Follow [this tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps) to deploy webapp in Azure.
 
 ## Benefits
