@@ -3,7 +3,7 @@ This repo contains code to monitor body vitals like ventricular rate, body tempe
 
 ## Introduction
 This project aims at warning individuals and providing suggestions when any of the following occurs:
-- Heart rate exceeds the maximum heart rate that a person can have. It takes age of the user as input in the web application. It calculates Maximum Heart Rate allowed for that age (Max Heart Rate wrt age: 208 - (0.7)age) and warns if the current heart rate exceeds as it can cause tear in muscles of heart.
+- Heart rate exceeds the maximum heart rate that a person can have. It takes age of the user as input in the web application. It calculates Maximum Heart Rate allowed for that age (Max Heart Rate wrt age: 208 - (0.7) x age) and warns if the current heart rate exceeds as it can cause tear in muscles of heart.
 - Peripheral capillary oxygen saturation (SpO2) of the person is out of range (Allowed range: 95-100). It calculates SpO2 of the person using the same PPG methodology.
 - Body temperature is out of range (Allowed range: 97.7-99.5 F). It calibrates body temperature and provide appropriate suggestions based on its value.
 - Predicts the current physical activity of the person (Fat burn, Cardio etc). It monitors the current zone of the heart and indicates the heart rate zone of the person whose heart rate is being monitored and predicts the current physical activity based on this.
@@ -23,11 +23,11 @@ It sends data from client’s end to the Azure server, where webapp is hosted. D
 1. Sparkfun ESP8266 Thing Dev
 2. MAX30105 Particle Sensor
 
-Check [this](https://learn.sparkfun.com/tutorials/esp8266-thing-development-board-hookup-guide/all) for more details on Sparkfun ESP8266 Thing Development Board.
+Check [this](https://learn.sparkfun.com/tutorials/esp8266-thing-development-board-hookup-guide/all) for more details on Sparkfun ESP8266 Thing Development Board.\s
 Check [this](https://learn.sparkfun.com/tutorials/max30105-particle-and-pulse-ox-sensor-hookup-guide/all) for more details on SparkFun MAX30105 Particle Sensor.
 
 ## Deploying IoTHub/Webapp in Microsoft Azure
-Follow [this tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started) to setup your device in Azure IoT hub.
+Follow [this tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started) to setup your device in Azure IoT hub.\s
 Follow [this tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps) to deploy webapp in Azure.
 
 ## Benefits
